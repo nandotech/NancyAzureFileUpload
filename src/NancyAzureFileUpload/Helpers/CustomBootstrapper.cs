@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Nancy;
 using Nancy.TinyIoc;
+using NancyAzureFileUpload.Services;
 
 namespace NancyAzureFileUpload.Helpers
 {
@@ -20,6 +21,7 @@ namespace NancyAzureFileUpload.Helpers
         protected override void ConfigureApplicationContainer(TinyIoCContainer ctr)
         {
             ctr.Register<IConfiguration>(Configuration);
+            ctr.Register<IDispatchFileService, DispatchFileService>();
         }
 
     }

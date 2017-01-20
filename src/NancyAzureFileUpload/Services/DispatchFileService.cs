@@ -26,7 +26,7 @@ namespace NancyAzureFileUpload.Services
         }
         public async Task Add(DispatchFile postedFile)
         {
-            string sQuery = @"INSERT INTO dcdb.Files
+            string sQuery = @"INSERT INTO dbo.Files
             (DispatchId, PrimaryUrl, SecondaryUrl, ItemType, Timestamp,
             Filename, Filetype)" +
             "VALUES(@DispatchId, @PrimaryUrl, @SecondaryUrl, @ItemType, getdate(), @Filename, @Filetype)";
