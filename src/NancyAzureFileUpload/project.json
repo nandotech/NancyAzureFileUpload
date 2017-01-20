@@ -1,0 +1,61 @@
+{
+  "name": "NancyAzureFileUpload",
+  "version": "1.0.0-beta",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.AspNetCore.Owin": "1.1.0",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
+    "Microsoft.Extensions.Configuration.Json": "1.1.0",
+    "Microsoft.AspNetCore.Diagnostics": "1.1.0",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
+    "Microsoft.Extensions.Configuration.Binder": "1.1.0",
+    "Microsoft.AspNetCore.StaticFiles": "1.1.0",
+    "WindowsAzure.Storage": "8.0.1",
+    "Nancy": "2.0.0-clinteastwood",
+    "Dapper": "1.50.2"
+  },
+ "frameworks": {
+    "netcoreapp1.1": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ],
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      }
+    }
+  },
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version":"1.1.0-preview4-final",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+       "**/*.html",
+      "web.config",
+      "appsettings.json",
+      "Content"
+    ]
+  },
+
+  "scripts": {
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  }
+}
