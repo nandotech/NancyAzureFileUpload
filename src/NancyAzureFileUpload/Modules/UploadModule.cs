@@ -23,8 +23,8 @@ namespace NancyAzureFileUpload.Modules
                 if(postedFile != null) 
                 {
                     //Check file type
-                    var url = $"https://{_config["StorageAccount:User"]}.blob.core.windows.net/{_config["containerName"]}/{postedFile.Name}";
-                    var secondary = $"https://{_config["StorageAccount:User"]}-secondary.blob.core.windows.net/{_config["containerName"]}/{postedFile.Name}";
+                    var url = $"https://{_config["StorageAccount:User"]}.blob.core.windows.net/{_config["StorageAccount:containerName"]}/{postedFile.Name}";
+                    var secondary = $"https://{_config["StorageAccount:User"]}-secondary.blob.core.windows.net/{_config["StorageAccount:containerName"]}/{postedFile.Name}";
 
                      //Upload file to Azure Storage
                     var creds = new StorageCredentials(_config["StorageAccount:User"], _config["StorageAccount:Key"]);
@@ -64,15 +64,15 @@ namespace NancyAzureFileUpload.Modules
                 if(postedFile != null) 
                 {
                     //Check file type
-                    var url = $"https://{_config["StorageAccount:User"]}.blob.core.windows.net/{_config["containerName"]}/{postedFile.Name}";
-                    var secondary = $"https://{_config["StorageAccount:User"]}-secondary.blob.core.windows.net/{_config["containerName"]}/{postedFile.Name}";
+                    var url = $"https://{_config["StorageAccount:User"]}.blob.core.windows.net/{_config["StorageAccount:containerName"]}/{postedFile.Name}";
+                    var secondary = $"https://{_config["StorageAccount:User"]}-secondary.blob.core.windows.net/{_config["StorageAccount:containerName"]}/{postedFile.Name}";
 
                     //Upload file to Azure Storage
                     var creds = new StorageCredentials(_config["StorageAccount:User"], _config["StorageAccount:Key"]);
                     var blob = new CloudBlockBlob(new Uri(url), creds);
 
                     await blob.UploadFromStreamAsync(postedFile.Value);  
-                                      
+
                     // Create object to save to table               
                     fileInfo = new DispatchFile
                     {
