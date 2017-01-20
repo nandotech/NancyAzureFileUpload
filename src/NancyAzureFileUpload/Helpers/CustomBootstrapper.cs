@@ -14,7 +14,8 @@ namespace NancyAzureFileUpload.Helpers
                 .SetBasePath(RootPathProvider.GetRootPath())
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
-
+            var tracingConfig = new TraceConfiguration(true, true);
+            
                 Configuration = builder.Build();
         }
 
